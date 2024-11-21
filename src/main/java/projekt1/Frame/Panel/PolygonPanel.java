@@ -49,12 +49,16 @@ public class PolygonPanel extends JPanel {
 
         points = new ArrayList<>(); 
 
+
+        //Ziskani souradnic z toho, kde se nachazi kurzor (vzdycky pri pohybu)
         addMouseMotionListener(new MouseMotionAdapter() {
             @Override
             public void mouseMoved(MouseEvent e) {
                 positionX = e.getX();
                 positionY = e.getY();
             }
+
+            //Co se deje pri tahani mysi
             @Override
             public void mouseDragged(MouseEvent e){
                 if(drawPentagon){
@@ -66,6 +70,8 @@ public class PolygonPanel extends JPanel {
             }
         });
 
+
+        //Tlacitka, prepinani modu atd..
         addKeyListener(new KeyAdapter() {
             @Override
             public void keyPressed(KeyEvent e) {
@@ -97,7 +103,7 @@ public class PolygonPanel extends JPanel {
             }
                
         });
-
+        //Kreslení pentagonu + urceni stredniho bodu pentagonu
         addMouseListener(new MouseAdapter() {
             @Override
             public void mousePressed(MouseEvent e) {
